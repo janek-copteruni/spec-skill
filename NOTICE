@@ -1,0 +1,11 @@
+Credits
+=======
+
+/spec runs together with ponytail by DietrichGebert
+(https://github.com/DietrichGebert/ponytail), which keeps every step of
+the loop to the smallest complete change. Its core skill is included
+unchanged in ponytail/SKILL.md, under its own MIT License,
+Copyright (c) 2026 DietrichGebert, in ponytail/LICENSE.
+
+The file formats follow OpenSpec (https://github.com/Fission-AI/OpenSpec).
+No OpenSpec code is included.

@@ -127,6 +127,7 @@ SPEC_TEST_PATTERN='it\("%s"' scripts/check-specs.sh
 
 ## License
 
-MIT, see [LICENSE](LICENSE), which also credits ponytail and OpenSpec.
+MIT, see [LICENSE](LICENSE). Credits for ponytail and OpenSpec are in
+[NOTICE](NOTICE).
 `ponytail/` is under its own MIT License, see
 [ponytail/LICENSE](ponytail/LICENSE).
