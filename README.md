@@ -6,6 +6,28 @@ docs, verify on the device, ship. The change folder keeps the plan and
 its progress on disk, so the work survives a context reset or a new
 session.
 
+It comes with [ponytail](https://github.com/DietrichGebert/ponytail)
+by DietrichGebert, a skill that makes the agent work like a lazy senior
+developer: the smallest change that fully solves the task, and a reply
+a busy human understands in one read. It applies these best practices
+to every change:
+
+- Build only what is needed; skip features, options and flexibility
+  nobody asked for.
+- Reuse what the codebase already has, then the standard library or
+  platform, then an installed dependency; never add a dependency for a
+  few lines.
+- No abstraction, wrapper, config or "for later" code nobody asked
+  for; deletion beats addition; keep the structure the codebase has.
+- Fix a bug at its root, once, after checking every caller.
+- Finish every part the change needs, including the callers, tests and
+  fixtures it breaks; new logic leaves one small test.
+- Never cut validation, error handling that prevents data loss,
+  security or accessibility.
+
+At its `ultra` level it also pushes back on any part of the request
+the need does not justify.
+
 It grew out of [Meditate](https://github.com/janekbt/MeditationApp),
 where it runs every change, and works with any language or stack.
 
