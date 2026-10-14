@@ -80,12 +80,21 @@ in every project, copy `spec/` and `ponytail/` to `~/.claude/skills/`
 instead. The checker and `AGENTS.md` still belong in each project.
 
 **2. `AGENTS.md`** at the project root. The skill reads it first and
-takes everything project-specific from it. Start from this:
+takes everything project-specific from it.
+
+> **Write this file for your own project.** The template below only
+> shows the shape. Every entry in it is an example: the `core/` and
+> `web/` parts, the `cargo` commands, the branch, the issue list.
+> Replace them with your project's parts, your own test and lint
+> commands, your branch and your rules. Keep the section headings, the
+> `scripts/check-specs.sh` line and the `/compact` line (with your
+> level, if you chose `full`).
 
 ```markdown
 # AGENTS.md
 
 ## Parts
+(example: replace with your own)
 - `core/`: shared logic; decisions go here
 - `web/`: the browser front end
 (one line per part a change can reach: apps, platforms, services)
@@ -95,6 +104,7 @@ takes everything project-specific from it. Start from this:
   in every translation)
 
 ## Commands
+(example: replace the cargo lines with your own test and lint commands)
     cargo test --workspace            # tests
     cargo clippy -- -D warnings       # lints
     scripts/check-specs.sh            # every test named in a spec exists
