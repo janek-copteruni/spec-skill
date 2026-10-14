@@ -44,7 +44,9 @@ where it runs every change, and works with any language or stack.
   before the code that passes it.
 - **Fresh eyes.** A fresh agent reads the proposal for open questions
   before you see it. Another one reviews the finished change from
-  `reviewer-prompt.md`, without the conversation.
+  `reviewer-prompt.md`, without the conversation. Fixes that change
+  behaviour, data or sync get a new fresh reviewer, round after round,
+  until no more fixes that change behaviour are needed.
 - **Smallest complete change.** [ponytail](https://github.com/DietrichGebert/ponytail)
   runs through every step and cuts what the need does not justify.
 - **One place for the state.** `tasks.md` in the change folder holds
