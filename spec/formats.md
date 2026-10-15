@@ -144,6 +144,7 @@ numbers if any.>
 Base: <commit hash from step 1>; suites on it: <green, or what failed>
 
 ## Loop
+- [ ] 0 /ponytail <level> (Skill tool, this run)
 - [ ] 1 Understand
 - [ ] 2 Propose (approved: <date>)
 - [ ] 3 Build

@@ -134,8 +134,9 @@ After every `/compact`, run `/ponytail ultra` again before anything else.
 
 ## Ponytail level
 
-/spec turns ponytail on before step 1. The level is `ultra` unless
-`AGENTS.md` says `full` under "Ponytail level".
+/spec turns ponytail on as the first call of every run (step 0 in
+`tasks.md`). The level is `ultra` unless `AGENTS.md` says `full` under
+"Ponytail level".
 
 Keep the `/compact` line from the template: a compaction drops the
 skill's rules from the agent's context, and `AGENTS.md` is the one file
