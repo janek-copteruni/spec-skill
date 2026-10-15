@@ -19,12 +19,9 @@ parts of the project and the doc map: `AGENTS.md`.
 
 This skill runs with ponytail (github.com/DietrichGebert/ponytail),
 which ships next to it in `ponytail/`; it keeps every step to the
-smallest complete change. Before step 1, run `/ponytail <level>` (Skill
-tool, `ponytail`, args `<level>`; `ponytail:ponytail` where the plugin
-is installed). The level is `ultra` unless `AGENTS.md` names `full`
-under "Ponytail level". `ultra` is strongly recommended: it also pushes
-back on the request itself. It stays on for the session; set it again
-after a `/compact`.
+smallest complete change. The level is `ultra` unless `AGENTS.md`
+names `full` under "Ponytail level". `ultra` is strongly recommended:
+it also pushes back on the request itself. When to call it: step 1.
 
 ## Size first
 
@@ -50,6 +47,11 @@ it is done. A skipped step stays unticked with its reason on the line.
 
 ### 1. Understand
 
+- The first tool call of every /spec run is `/ponytail <level>` (Skill
+  tool, `ponytail`, args `<level>`; `ponytail:ponytail` where the plugin
+  is installed). Every run, also when ponytail looks active: a level set
+  earlier or by a session hook may not be this one, and a `/compact`
+  resets it. Tick step 0 in `tasks.md`.
 - Read `AGENTS.md`, the living spec of every area the change touches
   (`openspec/specs/<area>/spec.md`), and the issue entries.
 - Re-check each issue against the current code: does it still happen,
@@ -239,6 +241,7 @@ not approval either: reply with the test steps and wait.
 
 | The thought | The truth |
 |---|---|
+| "Ponytail is already on." | Maybe at another level, maybe not since the `/compact`. Call it, every run. |
 | "I know what they mean." | Say it back first. A wrong guess costs a whole proposal. |
 | "Too small for a change folder." | Small changes skip the most steps and break the most rules. Use the size table. |
 | "The tests are green, I'll commit and the human tests later." | No commit before the device test. Hard gate. |
