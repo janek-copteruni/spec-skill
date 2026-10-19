@@ -149,9 +149,10 @@ Base: <commit hash from step 1>; suites on it: <green, or what failed>
 - [ ] 2 Propose (approved: <date>)
 - [ ] 3 Build
 - [ ] 4 Review
-- [ ] 5 Specs, docs, list
-- [ ] 6 Verify and hand over
-- [ ] 7 Ship
+- [ ] 5 Simplify
+- [ ] 6 Specs, docs, list
+- [ ] 7 Verify and hand over
+- [ ] 8 Ship
 
 ## Review Focus
 - <input the scenarios are silent on> -> <scenario name, or why not>

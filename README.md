@@ -47,6 +47,9 @@ where it runs every change, and works with any language or stack.
   `reviewer-prompt.md`, without the conversation. Fixes that change
   behaviour, data or sync get a new fresh reviewer, round after round,
   until no more fixes that change behaviour are needed.
+- **Simplify last.** After the review, `/simplify` makes the change
+  shorter or clearer without changing what it does, so the review
+  checks what the code does and this step only how it is written.
 - **Smallest complete change.** [ponytail](https://github.com/DietrichGebert/ponytail)
   runs through every step and cuts what the need does not justify.
 - **One place for the state.** `tasks.md` in the change folder holds
@@ -57,7 +60,7 @@ where it runs every change, and works with any language or stack.
 
 | File | What it is |
 |---|---|
-| `spec/SKILL.md` | The loop: the seven steps, their gates and rules |
+| `spec/SKILL.md` | The loop: the eight steps, their gates and rules |
 | `spec/formats.md` | The file formats: living specs, change folder, deltas, tasks.md, archive |
 | `spec/reviewer-prompt.md` | The brief for the fresh review agent |
 | `ponytail/SKILL.md` | ponytail's core skill by DietrichGebert, unchanged, with its own `LICENSE` |

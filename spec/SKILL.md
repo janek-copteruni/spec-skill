@@ -27,7 +27,7 @@ it also pushes back on the request itself. When to call it: step 1.
 
 | The change | What it needs |
 |---|---|
-| Typo, comment, doc-only, a fix to an existing translation | No change folder. Steps 5 to 7 still apply. |
+| Typo, comment, doc-only, a fix to an existing translation | No change folder. Steps 6 to 8 still apply. |
 | Anything that changes what the software does, or touches more than one file | The full loop. |
 | A batch of items from the issue list | One change folder for the batch; the proposal lists the issue numbers. |
 
@@ -180,19 +180,37 @@ finding that would change behaviour, UI text or data beyond the approved
 proposal is a question for the human, not a fix.
 
 Fixes are code no reviewer saw. When the fixes after the review, or
-after the device test in step 6, change behaviour, data or sync, a
+after the device test in step 7, change behaviour, data or sync, a
 fresh agent reviews only those: give it the list of fixes from
 `tasks.md`, the files and the brief, and fix what it finds the same
 way. Fixes to wording, comments or docs need no second look.
 
-### 5. Specs, docs and the list
+### 5. Simplify
+
+Once the last reviewer has nothing left (the review of the fixes
+included), call the Skill tool with `simplify` on the change's diff
+against the base commit. It is its own step, after the review, so the
+review checks what the change does and this one only how it is written.
+
+- It may make the code shorter or clearer, never change what it does:
+  same expected values, same UI texts, same data. A suggestion that
+  would change behaviour, data or UI text is dropped with one line in
+  `tasks.md`, or brought to the human if it looks like a real bug.
+- Then run the whole suite and every linter `AGENTS.md` lists again,
+  as in step 3. Red: find the cause first. A wrong simplification gets
+  fixed or dropped; a test that only checked how the code was built (a
+  name, the structure) may be adapted, with one line in `tasks.md`.
+- Simplifications that changed a test go to a fresh agent like the
+  fixes in step 4; the rest need no further review.
+
+### 6. Specs, docs and the list
 
 - Run `scripts/check-specs.sh`: every test named in a spec exists.
 - Update every doc the change made wrong, using the doc map in
   `AGENTS.md`. Grep the docs for the names you changed.
 - The issue list: remove the fixed items, tick a finished batch.
 
-### 6. Verify and hand over
+### 7. Verify and hand over
 
 Claim nothing you have not just seen:
 
@@ -216,7 +234,7 @@ ship ("finish it up", "push it tonight") given before they tested is
 not approval either: reply with the test steps and wait.
 ```
 
-### 7. Ship
+### 8. Ship
 
 1. Merge the deltas into the living specs (formats.md, "Archive"), move
    the change folder to `openspec/changes/archive/YYYY-MM-DD-<name>/`, run
@@ -224,7 +242,7 @@ not approval either: reply with the test steps and wait.
 2. Show the commit message; commit and push to the branch `AGENTS.md`
    names once approved, in one commit with the code, the specs and the
    archived folder. A contributor without push rights opens a pull
-   request instead, after step 6, and the maintainer tests and merges it.
+   request instead, after step 7, and the maintainer tests and merges it.
 
 ## Stop and ask before
 
@@ -245,11 +263,11 @@ not approval either: reply with the test steps and wait.
 | "I know what they mean." | Say it back first. A wrong guess costs a whole proposal. |
 | "Too small for a change folder." | Small changes skip the most steps and break the most rules. Use the size table. |
 | "The tests are green, I'll commit and the human tests later." | No commit before the device test. Hard gate. |
-| "I'll update the docs and specs at the end." | The end is when they get forgotten. Step 5 is before the hand-over. |
+| "I'll update the docs and specs at the end." | The end is when they get forgotten. Step 6 is before the hand-over. |
 | "The other platform can follow later." | Every part that has the behaviour, in the same change, or a written reason the human approved. |
 | "The test passed first time, good." | Either it tests nothing or the behaviour existed. Find out which. |
 | "It built." | Stat the artifact. |
-| "The reviewer found nothing, so it's right." | The review is one check of several; step 6 still applies. |
+| "The reviewer found nothing, so it's right." | The review is one check of several; step 7 still applies. |
 | "They said go earlier." | Approval covers what you showed. New scope needs a new go. |
 | "A lint suppression silences it." | Fix the cause. |
 | "I followed the spirit of the rule." | The letter is the spirit. |
